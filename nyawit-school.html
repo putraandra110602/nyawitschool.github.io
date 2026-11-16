@@ -43,61 +43,127 @@ header small{opacity:.85}
 .subject input{width:100%;padding:10px;border:1px solid #e3e0f2;border-radius:9px;font-size:12px;outline:none}
 .subject input:focus{border-color:var(--purple)}
 .subject button{width:100%;padding:9px;margin-top:9px;border-radius:9px;color:white;font-weight:bold;font-size:12px;transition:.2s}
-.save-btn{background:#7564db}.save-btn:hover{background:#5745bd}
-.delete-btn{background:#f4a9ca}.delete-btn:hover{background:#e17ba8}
+.save-btn{background:#7564db}
+.save-btn:hover{background:#5745bd}
+.delete-btn{background:#f4a9ca}
+.delete-btn:hover{background:#e17ba8}
 .order-controls{display:flex;gap:7px;margin-top:9px}
 .order-controls button{flex:1;background:#e9e5ff;color:#5949b5;padding:8px;border-radius:8px;font-weight:bold}
 .order-controls button:disabled{opacity:.4;cursor:not-allowed}
 .view-link{display:block;text-align:center;margin-top:12px;padding:10px;background:#e8f4ff;color:#416b9b;border-radius:9px;text-decoration:none;font-size:13px;font-weight:bold}
 .file-input{width:100%;margin-top:9px;font-size:11px}
+.file-actions{display:flex;gap:7px}
+.file-actions button{flex:1}
 .view-only-note{margin:0 0 16px;padding:12px 15px;border-radius:12px;background:#fff;border:1px solid #eeebfa;color:#65627e;font-size:13px;line-height:1.6}
 .progress-area{margin-top:22px;background:white;padding:20px;border-radius:17px}
 .progress-bar{height:11px;background:#eceaf6;border-radius:20px;margin-top:12px;overflow:hidden}
 #progressFill{height:100%;width:0%;background:linear-gradient(90deg,#7664dc,#75c6ed);transition:.4s}
 .motivation{padding:35px;border-radius:23px;text-align:center;background:linear-gradient(120deg,#7564db,#a68de9);color:white}
-.motivation h2{margin-bottom:13px}.motivation p{line-height:1.8}
+.motivation h2{margin-bottom:13px}
+.motivation p{line-height:1.8}
 .motivation button{padding:11px 20px;border-radius:10px;margin-top:17px;color:#6857c9;background:white;font-weight:bold}
 .encouragement{padding:30px;border-radius:23px;background:linear-gradient(120deg,#e3dcff,#e1f3ff,#ffe7f1);text-align:center}
-.encouragement h2{color:#5949b5;margin-bottom:12px}.encouragement p{color:#65627e;line-height:1.9}
+.encouragement h2{color:#5949b5;margin-bottom:12px}
+.encouragement p{color:#65627e;line-height:1.9}
 .poem{padding:30px;border-radius:23px;background:white;text-align:center;box-shadow:0 5px 20px #35305b0c}
-.poem h2{color:#7564db;margin-bottom:16px}.poem p{line-height:2;color:#65627e;white-space:pre-line}
+.poem h2{color:#7564db;margin-bottom:16px}
+.poem p{line-height:2;color:#65627e;white-space:pre-line}
 .history-area{background:white;padding:20px;border-radius:17px;overflow-x:auto}
 .history-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;text-align:left}
 .history-table th,.history-table td{padding:11px 9px;border-bottom:1px solid #eeebfa}
 .history-table th{color:#7564db;background:#f8f7ff}
 .history-empty{color:#9290a9;font-size:13px;margin-top:12px}
 footer{text-align:center;padding:30px 15px;color:#9290a9;font-size:13px}
-@media(max-width:800px){.subjects,.characters{grid-template-columns:repeat(2,1fr)}.hero{width:92%;padding:25px}.section{width:92%}.hero-art{font-size:55px}}
-@media(max-width:420px){.subjects{gap:10px}.subject{padding:13px}.subject h3{font-size:13px}header{padding:17px 5%}header h1{font-size:21px}.hero-art{font-size:40px}}
+@media(max-width:800px){
+ .subjects,.characters{grid-template-columns:repeat(2,1fr)}
+ .hero{width:92%;padding:25px}
+ .section{width:92%}
+ .hero-art{font-size:55px}
+}
+@media(max-width:420px){
+ .subjects{gap:10px}
+ .subject{padding:13px}
+ .subject h3{font-size:13px}
+ header{padding:17px 5%}
+ header h1{font-size:21px}
+ .hero-art{font-size:40px}
+}
 @keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
+
 <div id="loginPage">
  <div class="login-box">
-  <div class="logo">🏫</div><h1>NYAWIT SCHOOL</h1>
+  <div class="logo">🏫</div>
+  <h1>NYAWIT SCHOOL</h1>
   <p>Welcome to Our Little Classroom! ✨</p>
   <input type="text" id="username" placeholder="Masukkan Username" autocomplete="username" onkeydown="if(event.key==='Enter') login()">
   <input type="password" id="password" placeholder="Masukkan Password" autocomplete="current-password" onkeydown="if(event.key==='Enter') login()" style="margin-top:12px">
-  <button class="login-btn" onclick="login()">MASUK KELAS →</button><div id="error"></div>
+  <button class="login-btn" onclick="login()">MASUK KELAS →</button>
+  <div id="error"></div>
   <p style="font-size:12px;margin-top:22px">Made with ♡ for Four Nyawit</p>
  </div>
 </div>
+
 <div id="dashboard">
- <header><div><h1>🏫 NYAWIT SCHOOL</h1><small>Our Classroom • Our Future</small></div><button class="logout" onclick="logout()">Keluar ↗</button></header>
- <section class="hero"><div><h2>Welcome to Nyawit School! ✨</h2><p>Tempat kita belajar, berkembang, berbagi ilmu, dan meraih masa depan bersama.<br><br><b>Selamat belajar, <span id="welcomeUser">Four Nyawit</span>! ♡</b></p></div><div class="hero-art">📚💻</div></section>
- <section class="section"><h2 class="section-title">👩‍🎓 Our Classroom Family</h2><div class="characters">
-  <div class="character"><div class="avatar">👦🏻</div><h3>Andra</h3><p>Laki-laki ✨</p></div>
-  <div class="character"><div class="avatar">👦🏽</div><h3>Satria</h3><p>Laki-laki 💡</p></div>
-  <div class="character"><div class="avatar">👧🏻</div><h3>Desta</h3><p>Perempuan 🎨</p></div>
-  <div class="character"><div class="avatar">👧🏽</div><h3>Risa</h3><p>Perempuan 🌷</p></div>
- </div></section>
- <section class="section"><h2 class="section-title">📖 Our Learning Corner</h2><p style="color:#85839e;margin-bottom:20px">Tempelkan file materi, Google Drive, video, atau tugas pada mata pelajaran masing-masing.</p><div class="subjects" id="subjects"></div>
-  <div class="progress-area"><b>📊 Learning Progress</b><p id="progressText" style="font-size:13px;color:#888;margin-top:8px">0 dari 16 mata pelajaran sudah memiliki file.</p><div class="progress-bar"><div id="progressFill"></div></div></div>
+ <header>
+  <div>
+   <h1>🏫 NYAWIT SCHOOL</h1>
+   <small>Our Classroom • Our Future</small>
+  </div>
+  <button class="logout" onclick="logout()">Keluar ↗</button>
+ </header>
+
+ <section class="hero">
+  <div>
+   <h2>Welcome to Nyawit School! ✨</h2>
+   <p>Tempat kita belajar, berkembang, berbagi ilmu, dan meraih masa depan bersama.<br><br>
+   <b>Selamat belajar, <span id="welcomeUser">Four Nyawit</span>! ♡</b></p>
+  </div>
+  <div class="hero-art">📚💻</div>
  </section>
- <section class="section"><div class="motivation"><h2>🌟 A Little Motivation For Us</h2><p id="quote">"Jangan takut untuk memulai. Semua orang hebat juga pernah menjadi pemula."</p><button onclick="newQuote()">Motivasi Lainnya ✨</button></div></section>
- <section class="section"><div class="encouragement"><h2>💜 Kata-Kata Penyemangat</h2><p>Jangan pernah meremehkan langkah kecil yang kamu lakukan hari ini. Setiap usaha, setiap kesalahan, dan setiap pelajaran adalah bagian dari perjalanan menuju cita-cita. Tidak perlu menjadi yang paling cepat, cukup terus belajar dan jangan menyerah. Kalian punya kemampuan untuk tumbuh dan meraih masa depan yang hebat!</p></div></section>
- <section class="section"><div class="poem"><h2>🌷 Puisi: Empat Sahabat, Satu Impian</h2><p>Di ruang kelas kita memulai cerita,
+
+ <section class="section">
+  <h2 class="section-title">👩‍🎓 Our Classroom Family</h2>
+  <div class="characters">
+   <div class="character"><div class="avatar">👦🏻</div><h3>Andra</h3><p>Laki-laki ✨</p></div>
+   <div class="character"><div class="avatar">👦🏽</div><h3>Satria</h3><p>Laki-laki 💡</p></div>
+   <div class="character"><div class="avatar">👧🏻</div><h3>Desta</h3><p>Perempuan 🎨</p></div>
+   <div class="character"><div class="avatar">👧🏽</div><h3>Risa</h3><p>Perempuan 🌷</p></div>
+  </div>
+ </section>
+
+ <section class="section">
+  <h2 class="section-title">📖 Our Learning Corner</h2>
+  <p style="color:#85839e;margin-bottom:20px">Tempelkan file materi, Google Drive, video, atau tugas pada mata pelajaran masing-masing.</p>
+  <div class="subjects" id="subjects"></div>
+  <div class="progress-area">
+   <b>📊 Learning Progress</b>
+   <p id="progressText" style="font-size:13px;color:#888;margin-top:8px">0 dari 16 mata pelajaran sudah memiliki link.</p>
+   <div class="progress-bar"><div id="progressFill"></div></div>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="motivation">
+   <h2>🌟 A Little Motivation For Us</h2>
+   <p id="quote">"Jangan takut untuk memulai. Semua orang hebat juga pernah menjadi pemula."</p>
+   <button onclick="newQuote()">Motivasi Lainnya ✨</button>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="encouragement">
+   <h2>💜 Kata-Kata Penyemangat</h2>
+   <p>Jangan pernah meremehkan langkah kecil yang kamu lakukan hari ini. Setiap usaha, setiap kesalahan, dan setiap pelajaran adalah bagian dari perjalanan menuju cita-cita. Tidak perlu menjadi yang paling cepat, cukup terus belajar dan jangan menyerah. Kalian punya kemampuan untuk tumbuh dan meraih masa depan yang hebat!</p>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="poem">
+   <h2>🌷 Puisi: Empat Sahabat, Satu Impian</h2>
+   <p>Di ruang kelas kita memulai cerita,
 Membawa harapan dan cita-cita.
 Andra, Satria, Desta, dan Risa,
 Melangkah bersama menggapai asa.
@@ -115,105 +181,294 @@ Esok menyambut masa depan penuh warna.
 Empat nama, satu tujuan,
 Tumbuh bersama meraih impian.
 Nyawit School akan selalu menjadi cerita,
-Tentang persahabatan dan mimpi yang nyata.</p></div></section>
- <section class="section"><div class="history-area"><h2 class="section-title">🕒 Riwayat Login Website</h2><p style="color:#85839e;font-size:13px">Daftar pengguna yang berhasil masuk, beserta tanggal dan jam login.</p><div id="loginHistory"></div></div></section>
- <footer><h3>NYAWIT SCHOOL ♡</h3><p>Dari Andra untuk Four Nyawit</p><p style="margin-top:8px">Learn Together • Grow Together • Shine Together</p><p id="clock" style="margin-top:12px"></p></footer>
+Tentang persahabatan dan mimpi yang nyata.</p>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="history-area">
+   <h2 class="section-title">🕒 Riwayat Login Website</h2>
+   <p style="color:#85839e;font-size:13px">Daftar pengguna yang berhasil masuk, beserta tanggal dan jam login.</p>
+   <div id="loginHistory"></div>
+  </div>
+ </section>
+
+ <footer>
+  <h3>NYAWIT SCHOOL ♡</h3>
+  <p>Dari Andra untuk Four Nyawit</p>
+  <p style="margin-top:8px">Learn Together • Grow Together • Shine Together</p>
+  <p id="clock" style="margin-top:12px"></p>
+ </footer>
 </div>
+
 <script>
-const subjects=[["PAI","🕌"],["PPKN","🇮🇩"],["B. Indonesia","📝"],["Matematika","📐"],["Kimia","🧪"],["Biologi","🧬"],["Fisika","⚛️"],["Geografi","🌍"],["Sosiologi","👥"],["Sejarah","🏛️"],["Ekonomi","📈"],["B. Inggris","🔤"],["Seni Budaya","🎨"],["PJOK","⚽"],["B. Jawa","🌺"],["Informatika","💻"]];
+const subjects=[
+ ["PAI","🕌"],["PPKN","🇮🇩"],["B. Indonesia","📝"],
+ ["Matematika","📐"],["Kimia","🧪"],["Biologi","🧬"],
+ ["Fisika","⚛️"],["Geografi","🌍"],["Sosiologi","👥"],
+ ["Sejarah","🏛️"],["Ekonomi","📈"],["B. Inggris","🔤"],
+ ["Seni Budaya","🎨"],["PJOK","⚽"],["B. Jawa","🌺"],
+ ["Informatika","💻"]
+];
 
 function login(){
  const username=document.getElementById("username").value.trim();
  const password=document.getElementById("password").value;
  const validUser=["Andra","Satria","Desta","Risa"].find(n=>n.toLowerCase()===username.toLowerCase());
- const validPassword=validUser==="Andra" ? password==="Four Admin" : password==="Four";
- if(validUser&&validPassword){
-  sessionStorage.setItem("nyawitLogin","true");sessionStorage.setItem("nyawitUsername",validUser);
-  saveLoginHistory(validUser);showDashboard();
- }else{document.getElementById("error").innerText="Username atau password salah. Periksa kembali ya! 💜";}
+
+ if(validUser&&password==="Four"){
+  sessionStorage.setItem("nyawitLogin","true");
+  sessionStorage.setItem("nyawitUsername",validUser);
+  saveLoginHistory(validUser);
+  showDashboard();
+ }else{
+  document.getElementById("error").innerText="Username atau password salah. Periksa kembali ya! 💜";
+ }
 }
+
 function showDashboard(){
- document.getElementById("loginPage").style.display="none";document.getElementById("dashboard").style.display="block";
+ document.getElementById("loginPage").style.display="none";
+ document.getElementById("dashboard").style.display="block";
  document.getElementById("welcomeUser").textContent=sessionStorage.getItem("nyawitUsername")||"Four Nyawit";
- renderSubjects();renderLoginHistory();updateClock();
+ renderSubjects();
+ renderLoginHistory();
+ updateClock();
 }
-function logout(){sessionStorage.removeItem("nyawitLogin");sessionStorage.removeItem("nyawitUsername");location.reload();}
+
+function logout(){
+ sessionStorage.removeItem("nyawitLogin");
+ sessionStorage.removeItem("nyawitUsername");
+ location.reload();
+}
+
 if(sessionStorage.getItem("nyawitLogin")==="true")showDashboard();
 
 function getSubjectOrder(){
  const saved=JSON.parse(localStorage.getItem("nyawitSubjectOrder")||"null");
  if(!Array.isArray(saved))return subjects.map((_,i)=>i);
  const valid=saved.filter(i=>Number.isInteger(i)&&i>=0&&i<subjects.length);
- subjects.forEach((_,i)=>{if(!valid.includes(i))valid.push(i);});return valid;
+ subjects.forEach((_,i)=>{if(!valid.includes(i))valid.push(i);});
+ return valid;
 }
+
 function renderSubjects(){
- const container=document.getElementById("subjects");container.innerHTML="";
+ const container=document.getElementById("subjects");
+ container.innerHTML="";
  const isAndra=sessionStorage.getItem("nyawitUsername")==="Andra";
- const oldNote=document.getElementById("permissionNote");if(oldNote)oldNote.remove();
- const note=document.createElement("p");note.id="permissionNote";note.className="view-only-note";
- note.textContent=isAndra?"Andra dapat mengunggah atau menghapus file materi serta mengatur urutan mata pelajaran.":"Kamu dapat membuka file materi yang telah diunggah.";
+
+ const oldNote=document.getElementById("permissionNote");
+ if(oldNote)oldNote.remove();
+
+ const note=document.createElement("p");
+ note.id="permissionNote";
+ note.className="view-only-note";
+ note.textContent=isAndra
+  ?"Andra dapat mengunggah atau menghapus file materi serta mengatur urutan mata pelajaran."
+  :"Kamu dapat membuka file materi yang telah diunggah.";
  container.parentNode.insertBefore(note,container);
+
  const order=getSubjectOrder();
+
  order.forEach((subjectIndex,position)=>{
-  const subject=subjects[subjectIndex],card=document.createElement("div");card.className="subject";
-  const emoji=document.createElement("div");emoji.className="emoji";emoji.textContent=subject[1];
-  const title=document.createElement("h3");title.textContent=(position+1)+". "+subject[0];card.append(emoji,title);
+  const subject=subjects[subjectIndex];
+  const card=document.createElement("div");
+  card.className="subject";
+
+  const emoji=document.createElement("div");
+  emoji.className="emoji";
+  emoji.textContent=subject[1];
+
+  const title=document.createElement("h3");
+  title.textContent=(position+1)+". "+subject[0];
+  card.append(emoji,title);
+
   if(isAndra){
-   const fileInput=document.createElement("input");fileInput.type="file";fileInput.className="file-input";fileInput.id="file"+subjectIndex;
-   const fileSave=document.createElement("button");fileSave.className="save-btn";fileSave.textContent="📎 Unggah File Materi";fileSave.addEventListener("click",()=>uploadSubjectFile(subjectIndex));
-   const fileDelete=document.createElement("button");fileDelete.className="delete-btn";fileDelete.textContent="🗑️ Hapus File";fileDelete.addEventListener("click",()=>deleteSubjectFile(subjectIndex));
+   const fileInput=document.createElement("input");
+   fileInput.type="file";
+   fileInput.className="file-input";
+   fileInput.id="file"+subjectIndex;
+
+   const fileSave=document.createElement("button");
+   fileSave.className="save-btn";
+   fileSave.textContent="📎 Unggah File Materi";
+   fileSave.addEventListener("click",()=>uploadSubjectFile(subjectIndex));
+
+   const fileDelete=document.createElement("button");
+   fileDelete.className="delete-btn";
+   fileDelete.textContent="🗑️ Hapus File";
+   fileDelete.addEventListener("click",()=>deleteSubjectFile(subjectIndex));
+
    card.append(fileInput,fileSave,fileDelete);
-   const controls=document.createElement("div");controls.className="order-controls";
-   const up=document.createElement("button");up.textContent="⬆️ Naik";up.disabled=position===0;up.addEventListener("click",()=>moveSubject(subjectIndex,-1));
-   const down=document.createElement("button");down.textContent="⬇️ Turun";down.disabled=position===order.length-1;down.addEventListener("click",()=>moveSubject(subjectIndex,1));
-   controls.append(up,down);card.appendChild(controls);
+
+   const controls=document.createElement("div");
+   controls.className="order-controls";
+
+   const up=document.createElement("button");
+   up.textContent="⬆️ Naik";
+   up.disabled=position===0;
+   up.addEventListener("click",()=>moveSubject(subjectIndex,-1));
+
+   const down=document.createElement("button");
+   down.textContent="⬇️ Turun";
+   down.disabled=position===order.length-1;
+   down.addEventListener("click",()=>moveSubject(subjectIndex,1));
+
+   controls.append(up,down);
+   card.appendChild(controls);
   }
-  container.appendChild(card);showSubjectFile(subjectIndex,card,isAndra);
+
+  container.appendChild(card);
+  showSubjectFile(subjectIndex,card,isAndra);
  });
+
  updateProgress();
 }
+
+// Penyimpanan file materi di browser (IndexedDB).
 function openMaterialsDB(){
- return new Promise((resolve,reject)=>{const request=indexedDB.open("NyawitMaterialsDB",1);request.onupgradeneeded=()=>request.result.createObjectStore("files");request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});
+ return new Promise((resolve,reject)=>{
+  const request=indexedDB.open("NyawitMaterialsDB",1);
+  request.onupgradeneeded=()=>request.result.createObjectStore("files");
+  request.onsuccess=()=>resolve(request.result);
+  request.onerror=()=>reject(request.error);
+ });
 }
+
 async function saveMaterialFile(index,file){
- const db=await openMaterialsDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").put({blob:file,name:file.name,type:file.type},String(index));tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>{db.close();reject(tx.error);};});
+ const db=await openMaterialsDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction("files","readwrite");
+  tx.objectStore("files").put({
+   blob:file,
+   name:file.name,
+   type:file.type
+  },String(index));
+  tx.oncomplete=()=>{db.close();resolve();};
+  tx.onerror=()=>{db.close();reject(tx.error);};
+ });
 }
+
 async function getMaterialFile(index){
- const db=await openMaterialsDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readonly");const request=tx.objectStore("files").get(String(index));request.onsuccess=()=>{const result=request.result;db.close();resolve(result||null);};request.onerror=()=>{db.close();reject(request.error);};});
+ const db=await openMaterialsDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction("files","readonly");
+  const request=tx.objectStore("files").get(String(index));
+  request.onsuccess=()=>{
+   const result=request.result;
+   db.close();
+   resolve(result||null);
+  };
+  request.onerror=()=>{db.close();reject(request.error);};
+ });
 }
+
 async function removeMaterialFile(index){
- const db=await openMaterialsDB();return new Promise((resolve,reject)=>{const tx=db.transaction("files","readwrite");tx.objectStore("files").delete(String(index));tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>{db.close();reject(tx.error);};});
+ const db=await openMaterialsDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction("files","readwrite");
+  tx.objectStore("files").delete(String(index));
+  tx.oncomplete=()=>{db.close();resolve();};
+  tx.onerror=()=>{db.close();reject(tx.error);};
+ });
 }
+
 async function uploadSubjectFile(index){
- if(sessionStorage.getItem("nyawitUsername")!=="Andra"){alert("Kamu tidak memiliki izin untuk mengunggah file.");return;}
- const input=document.getElementById("file"+index),file=input.files[0];if(!file){alert("Pilih file terlebih dahulu.");return;}
- try{await saveMaterialFile(index,file);alert("File materi berhasil disimpan.");renderSubjects();}catch(e){alert("File gagal disimpan. Coba gunakan file yang lebih kecil atau browser lain.");}
-}
-async function deleteSubjectFile(index){
- if(sessionStorage.getItem("nyawitUsername")!=="Andra"){alert("Kamu tidak memiliki izin untuk menghapus file.");return;}
- if(!confirm("Hapus file materi "+subjects[index][0]+"?"))return;
- try{await removeMaterialFile(index);alert("File berhasil dihapus.");renderSubjects();}catch(e){alert("File gagal dihapus.");}
-}
-async function showSubjectFile(index,card){
+ if(sessionStorage.getItem("nyawitUsername")!=="Andra"){
+  alert("Kamu tidak memiliki izin untuk mengunggah file.");
+  return;
+ }
+
+ const input=document.getElementById("file"+index);
+ const file=input.files[0];
+
+ if(!file){
+  alert("Pilih file terlebih dahulu.");
+  return;
+ }
+
  try{
-  const file=await getMaterialFile(index);if(!card.isConnected)return;
-  if(!file){const empty=document.createElement("p");empty.style.cssText="color:#999;font-size:12px;margin-top:12px";empty.textContent="Belum ada file materi.";card.appendChild(empty);return;}
-  const link=document.createElement("a");link.className="view-link";link.href=URL.createObjectURL(file.blob);link.target="_blank";link.rel="noopener noreferrer";link.textContent="📎 Buka File: "+file.name;card.appendChild(link);
- }catch(e){console.error("Gagal membaca file materi",e);}
+  await saveMaterialFile(index,file);
+  alert("File materi berhasil disimpan.");
+  renderSubjects();
+ }catch(e){
+  alert("File gagal disimpan. Coba gunakan file yang lebih kecil atau browser lain.");
+ }
 }
+
+async function deleteSubjectFile(index){
+ if(sessionStorage.getItem("nyawitUsername")!=="Andra"){
+  alert("Kamu tidak memiliki izin untuk menghapus file.");
+  return;
+ }
+
+ if(!confirm("Hapus file materi "+subjects[index][0]+"?"))return;
+
+ try{
+  await removeMaterialFile(index);
+  alert("File berhasil dihapus.");
+  renderSubjects();
+ }catch(e){
+  alert("File gagal dihapus.");
+ }
+}
+
+async function showSubjectFile(index,card,isAndra){
+ try{
+  const file=await getMaterialFile(index);
+  if(!card.isConnected)return;
+
+  if(!file){
+   const empty=document.createElement("p");
+   empty.style.cssText="color:#999;font-size:12px;margin-top:12px";
+   empty.textContent="Belum ada file materi.";
+   card.appendChild(empty);
+   return;
+  }
+
+  const link=document.createElement("a");
+  link.className="view-link";
+  const url=URL.createObjectURL(file.blob);
+  link.href=url;
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+  link.textContent="📎 Buka File: "+file.name;
+  card.appendChild(link);
+ }catch(e){
+  console.error("Gagal membaca file materi",e);
+ }
+}
+
 function moveSubject(subjectIndex,direction){
- if(sessionStorage.getItem("nyawitUsername")!=="Andra"){alert("Hanya Andra yang dapat mengubah susunan mata pelajaran.");return;}
- const order=getSubjectOrder(),position=order.indexOf(subjectIndex),target=position+direction;
+ if(sessionStorage.getItem("nyawitUsername")!=="Andra"){
+  alert("Hanya Andra yang dapat mengubah susunan mata pelajaran.");
+  return;
+ }
+
+ const order=getSubjectOrder();
+ const position=order.indexOf(subjectIndex);
+ const target=position+direction;
+
  if(position<0||target<0||target>=order.length)return;
- [order[position],order[target]]=[order[target],order[position]];localStorage.setItem("nyawitSubjectOrder",JSON.stringify(order));renderSubjects();
+
+ [order[position],order[target]]=[order[target],order[position]];
+ localStorage.setItem("nyawitSubjectOrder",JSON.stringify(order));
+ renderSubjects();
 }
+
 async function updateProgress(){
  try{
-  const files=await Promise.all(subjects.map((_,i)=>getMaterialFile(i))),count=files.filter(Boolean).length,percent=count/subjects.length*100;
+  const files=await Promise.all(subjects.map((_,i)=>getMaterialFile(i)));
+  const count=files.filter(Boolean).length;
+  const percent=count/subjects.length*100;
+
   document.getElementById("progressFill").style.width=percent+"%";
-  document.getElementById("progressText").innerText=count+" dari 16 mata pelajaran sudah memiliki file materi ("+Math.round(percent)+"%).";
- }catch(e){document.getElementById("progressText").innerText="Progres file materi belum dapat dimuat.";}
+  document.getElementById("progressText").innerText=
+   count+" dari 16 mata pelajaran sudah memiliki file materi ("+Math.round(percent)+"%).";
+ }catch(e){
+  document.getElementById("progressText").innerText="Progres file materi belum dapat dimuat.";
+ }
 }
+
 const quotes=[
  '"Jangan takut untuk memulai. Semua orang hebat juga pernah menjadi pemula."',
  '"Belajar hari ini adalah investasi untuk masa depan."',
@@ -224,27 +479,69 @@ const quotes=[
  '"Masa depan cerah dimulai dari semangat belajar hari ini."',
  '"Gagal bukan akhir, tetapi kesempatan untuk menjadi lebih baik."'
 ];
-function newQuote(){document.getElementById("quote").innerText=quotes[Math.floor(Math.random()*quotes.length)];}
-function saveLoginHistory(username){
- const history=JSON.parse(localStorage.getItem("nyawitLoginHistory")||"[]");history.unshift({username,timestamp:new Date().toISOString()});localStorage.setItem("nyawitLoginHistory",JSON.stringify(history.slice(0,100)));
+
+function newQuote(){
+ document.getElementById("quote").innerText=quotes[Math.floor(Math.random()*quotes.length)];
 }
+
+function saveLoginHistory(username){
+ const history=JSON.parse(localStorage.getItem("nyawitLoginHistory")||"[]");
+ history.unshift({username,timestamp:new Date().toISOString()});
+ localStorage.setItem("nyawitLoginHistory",JSON.stringify(history.slice(0,100)));
+}
+
 function renderLoginHistory(){
- const container=document.getElementById("loginHistory"),history=JSON.parse(localStorage.getItem("nyawitLoginHistory")||"[]");
- if(!history.length){container.innerHTML='<p class="history-empty">Belum ada riwayat login.</p>';return;}
- const table=document.createElement("table");table.className="history-table";
- const thead=document.createElement("thead");thead.innerHTML="<tr><th>No.</th><th>Username</th><th>Tanggal</th><th>Jam</th></tr>";table.appendChild(thead);
+ const container=document.getElementById("loginHistory");
+ const history=JSON.parse(localStorage.getItem("nyawitLoginHistory")||"[]");
+
+ if(!history.length){
+  container.innerHTML='<p class="history-empty">Belum ada riwayat login.</p>';
+  return;
+ }
+
+ const table=document.createElement("table");
+ table.className="history-table";
+
+ const thead=document.createElement("thead");
+ thead.innerHTML="<tr><th>No.</th><th>Username</th><th>Tanggal</th><th>Jam</th></tr>";
+ table.appendChild(thead);
+
  const tbody=document.createElement("tbody");
+
  history.forEach((entry,index)=>{
-  const date=new Date(entry.timestamp),row=document.createElement("tr");
-  [String(index+1),entry.username,date.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"}),date.toLocaleTimeString("id-ID")].forEach(value=>{const cell=document.createElement("td");cell.textContent=value;row.appendChild(cell);});
+  const date=new Date(entry.timestamp);
+  const row=document.createElement("tr");
+
+  [
+   String(index+1),
+   entry.username,
+   date.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"}),
+   date.toLocaleTimeString("id-ID")
+  ].forEach(value=>{
+   const cell=document.createElement("td");
+   cell.textContent=value;
+   row.appendChild(cell);
+  });
+
   tbody.appendChild(row);
  });
- table.appendChild(tbody);container.replaceChildren(table);
+
+ table.appendChild(tbody);
+ container.replaceChildren(table);
 }
+
 function updateClock(){
- const now=new Date();document.getElementById("clock").innerText="📅 "+now.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"})+" | 🕒 "+now.toLocaleTimeString("id-ID");
+ const now=new Date();
+ document.getElementById("clock").innerText=
+  "📅 "+now.toLocaleDateString("id-ID",{
+   weekday:"long",day:"numeric",month:"long",year:"numeric"
+  })+" | 🕒 "+now.toLocaleTimeString("id-ID");
 }
-setInterval(()=>{if(document.getElementById("clock"))updateClock();},1000);
+
+setInterval(()=>{
+ if(document.getElementById("clock"))updateClock();
+},1000);
+
 </script>
 </body>
 </html>
